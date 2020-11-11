@@ -6,13 +6,20 @@
     left: 60%;
     transform: translate(-50%, -50%);
 }
+.toRight{
+    margin-left: 40px;
+    line-height: 60px;
+}
+/* sobrescribiendo css de material angular */
 #container /deep/ .mat-accent .mat-slider-track-fill {
     background: white!important;
 }
 #container /deep/ .mat-accent .mat-slider-thumb {
     background: white!important;
 }
-.toRight{
-    margin-left: 40px;
-    line-height: 60px;
+
+@media (max-width: 1155px) {
+    .toRight { 
+        display:none;
+    }
 }

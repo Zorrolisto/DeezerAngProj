@@ -1,1 +1,14 @@
-<p>song-display works!</p>
+<div class="row">
+    <div class="col-3 toLeft" *ngIf="mapForDisplaySong.get('Cover')!=null">
+        <img class="coverImage" [src]="mapForDisplaySong.get('Cover')" alt="">
+    </div>
+    <div class="col responsiveTitle">
+        <div class="songTitle" *ngIf="mapForDisplaySong.get('SongName')">
+            {{mapForDisplaySong.get('SongName')}}
+        </div>
+        <div class="artistAlbumTitle" *ngIf="mapForDisplaySong.get('AlbumName') && mapForDisplaySong.get('ArtistName')">
+            {{mapForDisplaySong.get('ArtistName')}} - {{mapForDisplaySong.get('AlbumName')}}
+        </div>
+    </div>
+</div>
+

@@ -49,3 +49,12 @@
 .next:active{
     opacity: 0.4;
 }
+
+@media (max-width: 750px) {
+    .next{
+        padding-left: 0px;
+    }
+    .previous{
+        padding-left: 0px;
+    }
+}

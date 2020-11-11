@@ -6,10 +6,11 @@
             [max]="1"
             [min]="0"
             [step]="0.01"
-            [(ngModel)]="volume">
+            [(ngModel)]="volume"
+            (ngModelChange)="passVolume($event)">
             </mat-slider>
         </div>
-        <div class="toRight">
+        <div class="toRight" (click)="mute()">
             <i class="fas fa-volume-off fa-2x"></i>
             <!--<i class="fas fa-volume-up"></i>-->
         </div>

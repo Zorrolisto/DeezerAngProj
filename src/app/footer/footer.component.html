@@ -2,13 +2,21 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4">
-                <app-song-display></app-song-display>
+                <app-song-display
+                [mapForDisplaySong]="mapForDisplaySong"
+                ></app-song-display>
             </div>
             <div class="col-4">
-                <app-song-controller></app-song-controller>
+                <app-song-controller 
+                (propagar)="songControl($event)" 
+                [cancionIsReproduced]="cancionIsReproduced"
+                [existSongs]="existSongs">
+                </app-song-controller>
             </div>
             <div class="col-4">
-                <app-volume-controller></app-volume-controller>
+                <app-volume-controller 
+                (propagar)="volumeControl($event)">
+                </app-volume-controller>
             </div>
         </div>
     </div>

@@ -1,0 +1,29 @@
+.coverImage{
+    width: 100px;
+    height: 100px;
+}
+.toLeft{
+    width: 100px;
+    height: 100px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.songTitle{
+    font-size: 14px;
+    font-family: 'Quicksand 700';
+}
+.artistAlbumTitle{
+    font-size: 12px;
+    font-family: 'Quicksand 400';
+}
+.responsiveTitle{
+    vertical-align: middle;
+    padding-top: 24px;
+    padding-left: 20px;
+}
+
+@media (max-width: 930px) {
+    .responsiveTitle { 
+        display: none;
+    }
+}

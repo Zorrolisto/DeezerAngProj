@@ -1,0 +1,14 @@
+.searchIcon{
+    position: relative;
+    float: right;
+}
+
+input#search-bar{
+  margin: 30px 40px;
+  width: 60%;
+  height: 45px;
+  padding: 6px 16px;
+  font-size: 1rem;
+  border: 1px solid #D0CFCE;
+  outline: none;
+}

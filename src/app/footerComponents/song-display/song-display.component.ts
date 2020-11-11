@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-song-display',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song-display.component.css']
 })
 export class SongDisplayComponent implements OnInit {
+
+  @Input()mapForDisplaySong:Map<string,string>;
 
   constructor() { }
 
