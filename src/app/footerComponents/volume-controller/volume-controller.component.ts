@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolumeControllerComponent implements OnInit {
 
+  volume: number;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.volume = 1;
   }
 
 }

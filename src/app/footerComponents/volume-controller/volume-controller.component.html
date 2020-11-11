@@ -1,1 +1,17 @@
-<p>volume-controller works!</p>
+<div class="volume">
+    <div class="row">
+        <div id="container">
+            <mat-slider 
+            #slider 
+            [max]="1"
+            [min]="0"
+            [step]="0.01"
+            [(ngModel)]="volume">
+            </mat-slider>
+        </div>
+        <div class="toRight">
+            <i class="fas fa-volume-off fa-2x"></i>
+            <!--<i class="fas fa-volume-up"></i>-->
+        </div>
+    </div>
+</div>
