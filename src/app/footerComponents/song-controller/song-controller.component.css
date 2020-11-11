@@ -1,0 +1,51 @@
+.footerControllers{
+    height: 100px;
+    position: relative;
+}
+.controllers{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.previous{
+    text-align:center;
+    line-height:60px;
+    padding-left: 24.8px;
+    transform: rotate(180deg);
+    opacity: 0.6;
+}
+.previous:hover{
+    opacity: 1;
+}
+.previous:active{
+    opacity: 0.4;
+}
+.circle{
+    border-radius:50%;
+    background:rgba(255, 255, 255, 0.2);
+    color:white;
+    width:60px;
+    height:60px;
+    text-align:center;
+    line-height:60px;
+}
+.circle:hover{
+    background:rgba(255,255,255,0.5);
+}
+.circle:active{
+    background:rgba(255,255,255,0.3);
+}
+.next{
+    text-align:center;
+    line-height:60px;
+    padding-left: 24.8px;
+    opacity: 0.6;
+}
+.next:hover{
+    opacity: 1;
+}
+.next:active{
+    opacity: 0.4;
+}
