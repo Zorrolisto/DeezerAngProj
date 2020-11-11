@@ -1,0 +1,45 @@
+.sidebar {
+    width: 330px;
+    height: 100%;
+    position: fixed;
+    background: #662323;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 50px;
+}
+  
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: #EB5757;
+}
+
+.sidebar .adjustToFit{
+    max-width:100%;
+    max-height:100%;
+    vertical-align: middle;
+}
+
+.title{
+    line-height: 27.5px;
+    margin-top: 30px;
+    font-size: 22px;
+    font-family: 'Quicksand 700';
+}
+
+.subtitle{
+    line-height: 20px;
+    font-size: 16px;
+    font-family: 'Quicksand 400';
+}
+
+@media (max-width: 750px) {
+.sidebar { 
+    width: 150px;
+}
+}
