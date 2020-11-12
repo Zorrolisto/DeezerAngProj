@@ -30,6 +30,7 @@
             "scripts": []
           },
           "configurations": {
+            "proxyConfig": "proxy.conf.json",
             "production": {
               "fileReplacements": [
                 {

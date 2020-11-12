@@ -8,7 +8,7 @@ import { Artist } from 'src/app/models.entity/artist/artist';
 })
 export class ArtistService {
 
-  private url:string = 'https://api.deezer.com/artist';
+  private url:string = '/artist';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) { }

@@ -72,6 +72,7 @@
     cursor: pointer;
 }
 .itemsContainer {
+    cursor: pointer;
     float:left;
     position:relative
 }

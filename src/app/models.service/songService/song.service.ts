@@ -9,7 +9,7 @@ import { Tracks } from 'src/app/models.entity/tracksChart/tracks';
 })
 export class SongService {
 
-  private url:string = 'https://api.deezer.com/search?q=';
+  private url:string = '/search?q=';
   private httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
 
   constructor(private http: HttpClient) { }
@@ -19,7 +19,11 @@ export class SongService {
   }
 
   getTracksByUrl(url:string):Observable<Data>{
+    url = this.urlAdapter(url);
     return this.http.get<Data>(url);
+  }
+  urlAdapter(url:string):string{
+    return url.substring(22);
   }
 
   getTracksByArtistAndAlbum(nameArtist:String, titleAlbum:String):Observable<Data>{
@@ -31,6 +35,6 @@ export class SongService {
   }
   
   topTenChart():Observable<Tracks>{
-    return this.http.get<Tracks>("https://api.deezer.com/chart/0?index=0&limit=10");
+    return this.http.get<Tracks>("/chart/0?index=0&limit=10");
   }
 }

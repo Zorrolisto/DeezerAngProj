@@ -3,6 +3,7 @@
     height: 160px;
 }
 .itemsContainer {
+    cursor: pointer;
     float:left;
     position:relative
 }
