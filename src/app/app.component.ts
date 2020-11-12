@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Album } from './models.entity/album/album';
-import { AlbumService } from './models.service/albumService/album.service';
+import { Data } from './models.entity/Data/data';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +7,10 @@ import { AlbumService } from './models.service/albumService/album.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  albumForReproduce:Album;
+  
+  tracksForReproduce:Data;
 
-  Play(albumForReproduce:any){
-    this.albumForReproduce = albumForReproduce;
+    Play(tracksForReproduce:any){
+    this.tracksForReproduce = tracksForReproduce;
   }
 }

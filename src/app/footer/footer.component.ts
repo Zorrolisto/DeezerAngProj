@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Album } from '../models.entity/album/album';
+import { Data } from '../models.entity/Data/data';
 
 @Component({
   selector: 'app-footer',
@@ -8,7 +9,8 @@ import { Album } from '../models.entity/album/album';
 })
 export class FooterComponent implements OnChanges {
 
-  @Input() albumForReproduce:Album;
+  @Input() tracksForReproduce:Data;
+  @Input() indexOfSong:Data;
   existSongs:boolean=false;
   numberActualSong:number=0;
   cancionIsReproduced:boolean=false;
@@ -16,15 +18,19 @@ export class FooterComponent implements OnChanges {
   mapForDisplaySong:Map<string,string> = new Map<string,string>();
 
   ngOnChanges():void{
-    if(this.albumForReproduce!=null){
+    if(this.tracksForReproduce!=null){
       this.existSongs=true;
-      this.numberActualSong=1;
-      this.mapForDisplaySong.set('AlbumName',this.albumForReproduce.title);
-      this.mapForDisplaySong.set('ArtistName',this.albumForReproduce.artist.name);
-      this.mapForDisplaySong.set('SongName',this.albumForReproduce.tracks.data[this.numberActualSong].title);
-      this.mapForDisplaySong.set('Cover',this.albumForReproduce.cover_medium);
-      this.reproduceSong(this.albumForReproduce.tracks.data[this.numberActualSong].preview);
+      this.numberActualSong=0;
+      this.setMap();
+      this.reproduceSong(this.tracksForReproduce.data[this.numberActualSong].preview);
     }
+  }
+
+  setMap(){
+    this.mapForDisplaySong.set('AlbumName',this.tracksForReproduce.data[this.numberActualSong].album.title);
+    this.mapForDisplaySong.set('ArtistName',this.tracksForReproduce.data[this.numberActualSong].artist.name);
+    this.mapForDisplaySong.set('SongName',this.tracksForReproduce.data[this.numberActualSong].title);
+    this.mapForDisplaySong.set('Cover',this.tracksForReproduce.data[this.numberActualSong].album.cover_medium);
   }
 
   volumeControl(volume:any){
@@ -43,21 +49,19 @@ export class FooterComponent implements OnChanges {
         break;
       case 3:
           this.numberActualSong++;
-          if(this.albumForReproduce.tracks.data[this.numberActualSong]!=null){
-            this.reproduceSong(this.albumForReproduce.tracks.data[this.numberActualSong].preview);
-          }else{
-            console.log("No hay siguiente cancion");
-            this.numberActualSong--;
+          //LOOPEAR LISTA
+          if(this.tracksForReproduce.data[this.numberActualSong]==null){
+            this.numberActualSong=0;
           }
+          this.reproduceSong(this.tracksForReproduce.data[this.numberActualSong].preview);
         break;
       case 4:
         this.numberActualSong--;
-        if(this.albumForReproduce.tracks.data[this.numberActualSong]!=null && this.numberActualSong>=0){
-          this.reproduceSong(this.albumForReproduce.tracks.data[this.numberActualSong].preview);
-        }else{
-          console.log("No hay cancion anterior");
-          this.numberActualSong++;
+        //LOOPEAR LISTA
+        if(this.tracksForReproduce.data[this.numberActualSong]==null || this.numberActualSong<0){
+          this.numberActualSong=0;
         }
+        this.reproduceSong(this.tracksForReproduce.data[this.numberActualSong].preview);
         break;
       case 5:
         this.cancionIsReproduced = !this.songActual.paused;
@@ -70,7 +74,7 @@ export class FooterComponent implements OnChanges {
     try {
       this.songActual.load();
       this.songActual.play();
-      this.mapForDisplaySong.set('SongName',this.albumForReproduce.tracks.data[this.numberActualSong].title);
+      this.setMap();
     } catch (error) {
       console.log(error);
     }

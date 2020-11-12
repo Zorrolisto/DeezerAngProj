@@ -1,0 +1,70 @@
+.image{
+    width: 160px;
+    height: 160px;
+}
+.itemsContainer {
+    float:left;
+    position:relative
+}
+.itemsContainer:hover .play{
+    opacity: 0.6;
+}
+
+.itemsContainer:active .play{
+    opacity: 0.3;
+}
+.play{
+    color: white;
+    position : absolute;
+    display:block;
+    top:30%; 
+    width:60px;
+    margin:0 auto; left:0px;
+    right:0px;
+    z-index:1;
+} 
+
+.albumdiv{
+    margin-left: 11px;
+    margin-right: 11px;
+    text-align: center;
+}
+
+.titleOfAlbum{
+    font-family: 'Quicksand 700';
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    max-width: 160px;
+    white-space: initial;
+}
+
+.titleOfAlbum:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nameOfArtist{
+    font-family: 'Quicksand 400';
+    font-size: 12px;
+}
+
+.pagination {
+    margin-top: auto;
+    display: block;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+.pagination a{
+    position: relative;
+    right: 20px;
+    cursor: pointer;
+    background-color: #EB5757;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 30px;
+    transition: background-color .3s;
+    border: 1px solid ;
+}

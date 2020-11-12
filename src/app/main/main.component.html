@@ -1,11 +1,20 @@
 <div class="main">
-    <app-search-bar></app-search-bar>
-    <app-user-profile></app-user-profile>
-    <button (click)="getAlbum()">
-        Get
-    </button>
-    
-    <button (click)="playAlbum()">
-        Play 
-    </button>
+
+    <div class="row">
+        <!--Search bar-->
+        <div class="col">
+            <app-search-bar (propagar)="Buscar($event)"></app-search-bar>    
+        </div>
+        <!--User Detail-->
+        <div class="col">
+            <app-user-profile></app-user-profile>
+        </div>
+    </div>
+
+    <!--Tracks display and pagination-->
+    <app-tracks-display
+    (propagarCancion)="reproducirCancion($event)"
+    (propagar)="getAnotherPageTenAlbums($event)"
+    [tracksForReproduce]="tracksForReproduce" 
+    ></app-tracks-display>
 </div>

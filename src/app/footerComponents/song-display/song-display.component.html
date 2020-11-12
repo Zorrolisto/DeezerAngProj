@@ -2,6 +2,9 @@
     <div class="col-3 toLeft" *ngIf="mapForDisplaySong.get('Cover')!=null">
         <img class="coverImage" [src]="mapForDisplaySong.get('Cover')" alt="">
     </div>
+    <div class="col-3 toLeft" *ngIf="mapForDisplaySong.get('Cover')==null">
+        <img class="coverImage" src="assets/img/pngwing.com.png" alt="">
+    </div>
     <div class="col responsiveTitle">
         <div class="songTitle" *ngIf="mapForDisplaySong.get('SongName')">
             {{mapForDisplaySong.get('SongName')}}

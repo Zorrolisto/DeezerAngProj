@@ -1,14 +1,22 @@
-.searchIcon{
+.icon{
     position: relative;
-    float: right;
+    right: 70px;
+    color: gray; 
+    opacity: 50%; 
 }
 
 input#search-bar{
   margin: 30px 40px;
-  width: 60%;
-  height: 45px;
+  width: 524px;
+  height: 36px;
   padding: 6px 16px;
   font-size: 1rem;
   border: 1px solid #D0CFCE;
-  outline: none;
+  border-radius:30px;
+}
+
+@media (max-width: 750px) {
+    input#search-bar{
+        width: 60%;
+    }
 }

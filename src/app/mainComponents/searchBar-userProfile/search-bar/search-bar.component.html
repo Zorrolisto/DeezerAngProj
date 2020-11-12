@@ -1,6 +1,13 @@
 <form class="search-container">
-    <input type="text" id="search-bar" placeholder="Buscar">
-    <a href="#">
-        <i class="fa fa-search" class="searchIcon" aria-hidden="true"></i>
+
+    <input type="text" 
+    id="search-bar" 
+    name="wordToSearch"
+    [(ngModel)]="wordToSearch" 
+    placeholder="Buscar" 
+    (keyup.enter)="onEnter()">
+
+    <a (click)="search()" class="search-icon">
+        <i class=" fas fa-search icon fa-sm"></i>
     </a>
 </form>

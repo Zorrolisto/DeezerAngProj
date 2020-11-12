@@ -20,6 +20,7 @@ import { MainComponent } from './main/main.component';
 import { HeaderBarComponent } from './mainComponents/searchBar-userProfile/header-bar/header-bar.component';
 import { SearchBarComponent } from './mainComponents/searchBar-userProfile/search-bar/search-bar.component';
 import { UserProfileComponent } from './mainComponents/searchBar-userProfile/user-profile/user-profile.component';
+import { TracksDisplayComponent } from './mainComponents/searchBar-userProfile/tracks-display/tracks-display.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { UserProfileComponent } from './mainComponents/searchBar-userProfile/use
     HeaderBarComponent,
     SearchBarComponent,
     UserProfileComponent,
+    TracksDisplayComponent,
   ],
   imports: [
     HttpClientModule,
