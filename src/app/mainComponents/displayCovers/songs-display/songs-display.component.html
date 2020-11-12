@@ -4,7 +4,7 @@
         <div class="container">
             <app-cover-song-display
             (spread)="reproduceAlbum($event)" 
-            [songForDisplayCover]="songsForReproduce.data[0]"
+            [songForDisplayCover]="songsForReproduce.data"
             ></app-cover-song-display>
         </div>
         <div class="resultsTitle" *ngIf="resultsTitle">

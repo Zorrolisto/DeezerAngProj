@@ -10,9 +10,10 @@ import { SongService } from 'src/app/models.service/songService/song.service';
   styleUrls: ['./cover-song-display.component.css']
 })
 export class CoverSongDisplayComponent implements OnChanges{
-  @Input()songForDisplayCover:Song;
+  @Input()songForDisplayCover:Song[];
   @Input()searchOption:number;
   SongsOfAlbum:Data;
+  indexOfAlbum:number=0;
   @Output()
   spread = new EventEmitter<any>(); 
   
@@ -22,25 +23,49 @@ export class CoverSongDisplayComponent implements OnChanges{
     ){}
 
   ngOnChanges(){
+    this.indexOfAlbum=0;
+    this.refreshCover();
+  }
+  refreshCover(){
     this.obtainFans();
     this.obtainAlbum();
   }
   obtainFans(){
-    this.artistService.getNumberOfFans(this.songForDisplayCover.artist.id)
+    this.artistService.getNumberOfFans(this.songForDisplayCover[this.indexOfAlbum].artist.id)
       .subscribe(
         (artist)=>{
-          this.songForDisplayCover.artist.nb_fan = artist.nb_fan
+          this.songForDisplayCover[this.indexOfAlbum].artist.nb_fan = artist.nb_fan
         },error=>console.log('Error al obtener numero de fans')
       );
   }
   obtainAlbum(){
-    this.songService.getTracksByArtistAndAlbum(this.songForDisplayCover.artist.name, this.songForDisplayCover.album.title).subscribe(
+    this.songService.getTracksByArtistAndAlbum(
+      this.songForDisplayCover[this.indexOfAlbum].artist.name, 
+      this.songForDisplayCover[this.indexOfAlbum].album.title)
+      .subscribe(
       (totalSongsOfAlbum)=>{
         this.SongsOfAlbum = totalSongsOfAlbum
       },error=>console.log('Error al obtener Album')
     );
   }
   reproduceAlbum(){
+    console.log(this.songForDisplayCover[0]);
     this.spread.emit(this.SongsOfAlbum);
+  }
+  anteriorAlbum(){
+    if(this.songForDisplayCover[this.indexOfAlbum-1]){
+      this.indexOfAlbum--;
+      this.refreshCover();
+    }else{
+      this.indexOfAlbum=0;
+    }
+  }
+  siguienteAlbum(){
+    if(this.songForDisplayCover[this.indexOfAlbum+1]){
+      this.indexOfAlbum++;
+      this.refreshCover();
+    }else{
+      this.indexOfAlbum=0;
+    }
   }
 }
