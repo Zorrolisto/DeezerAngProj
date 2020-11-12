@@ -1,0 +1,50 @@
+<!--<a href="https://stories.freepik.com/music">Illustration by Freepik Stories</a>  ILUSTRACIONES SACADAS DE AQUI-->
+<div *ngIf="songsForReproduce">
+    <div class="container">
+        <div class="container">
+            <app-cover-song-display
+            (spread)="reproduceAlbum($event)" 
+            [songForDisplayCover]="songsForReproduce.data[0]"
+            ></app-cover-song-display>
+        </div>
+        <div class="resultsTitle" *ngIf="resultsTitle">
+            {{resultsTitle}}
+        </div>
+        <div class="row">
+            <div class="albumdiv" *ngFor="let song of songsForReproduce.data">
+                <div class="itemsContainer">
+                    <div> 
+                        <a (click)="reproduceSong(song)">  
+                            <img class="image" [src]="song.album.cover_medium"/> 
+                        </a>
+                    </div>
+                    <div class="play" (click)="reproduceSong(song)">
+                        <i class="fas fa-play fa-lg"></i>
+                    </div>
+                    <div class="titleOfAlbum">
+                        {{song.title}} - {{song.album.title}}
+                    </div>
+                    <div class="nameOfArtist">
+                        {{song.artist.name}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination">
+        <a *ngIf="songsForReproduce.prev" (click)="getAnotherPageTenAlbums(songsForReproduce.prev)">❮</a>
+        <a *ngIf="songsForReproduce.next" (click)="getAnotherPageTenAlbums(songsForReproduce.next)">❯</a>
+    </div>
+</div>
+
+<div *ngIf="!songsForReproduce">
+    <div class="centeredDiv">
+        <div *ngIf="searchTitle">
+            {{searchTitle}}
+        </div>
+        <div *ngIf="!searchTitle">
+            Cargando...
+        </div>
+        <img class="img" src="assets/img/Playing Music-pana.svg"/>
+    </div>
+</div>

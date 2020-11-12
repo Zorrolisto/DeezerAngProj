@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Album } from '../models.entity/album/album';
 import { Data } from '../models.entity/Data/data';
 import { Song } from '../models.entity/song/song';
@@ -9,47 +9,54 @@ import { SongService } from '../models.service/songService/song.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit{
-  tracksForReproduce:Data;
-  albumsForReproduce:Album[];//Se Reproducira todo el album al presionar alguna cancion
+export class MainComponent implements OnInit, OnChanges{
+  songsForReproduce:Data;
+  albumsForReproduce:Album[];
   albumId:number=21;
   nextPage:string;
   previousPage:string;
-  searchOption:number = 1;//1 para buscar por Album, 2 para buscar por Cancion
-
+  @Input() searchOption:number;
   @Output()
-  propagar = new EventEmitter<any>(); 
+  spread = new EventEmitter<any>(); 
 
-  constructor( private songService:SongService){
-  }
+  constructor( private songService:SongService){}
 
   ngOnInit(){
     this.topTenChart();
   }
+  ngOnChanges(){
+    if(this.searchOption==1){
+      this.topTenChart();
+    }else{
+      this.songsForReproduce=null;
+    }
+  }
 
   topTenChart(){
     this.songService.topTenChart()
-      .subscribe(data => this.tracksForReproduce = data.tracks);
+      .subscribe(data => this.songsForReproduce = data.tracks);
   }
 
-  Buscar(wordToSearch:String){
+  Search(wordToSearch:String){
     switch(this.searchOption){
       case 1:
-          this.getByAlbum(wordToSearch);
+          this.getBySong(wordToSearch);
          break;
       case 2:
+          this.getByAlbum(wordToSearch);
+         break;
+      case 3:
         this.getBySong(wordToSearch);
         break;
     }
   }
 
   getByAlbum(albumToSearch:String){
-    let data = null;
     console.log("antes de hacer el pedido de albums");
     this.songService.getTracksByAlbum(albumToSearch)
       .subscribe(
         (Data) => {
-            this.tracksForReproduce = Data;
+            this.songsForReproduce = Data;
           },
           error=>console.log('Error en pedido')
         ); 
@@ -59,7 +66,7 @@ export class MainComponent implements OnInit{
     this.songService.getTracksByUrl(url)
       .subscribe(
         (Data) => {
-            this.tracksForReproduce = Data;
+            this.songsForReproduce = Data;
           },
           error=>console.log('Error en pedido')
         ); 
@@ -67,17 +74,17 @@ export class MainComponent implements OnInit{
   
   getBySong(songToSearch:String){
     this.songService.getBySong(songToSearch)
-      .subscribe(Data => this.tracksForReproduce = Data); 
+      .subscribe(Data => this.songsForReproduce = Data); 
   }
-  
-  getByArtistAndAlbum(albumToSearch:String, artistToSearch:String, limit:number){
-    this.songService.getTracksByArtistAndAlbum(artistToSearch, albumToSearch, limit)
-      .subscribe(Data => this.tracksForReproduce = Data); 
+
+  reproduceAlbum(SongsOfAlbum:any){
+    console.log(SongsOfAlbum);
+    this.spread.emit(SongsOfAlbum);
   }
-  reproducirCancion(track:Song){
+  reproduceSong(track:Song){
     let data:Data = new Data();
     data.data = [];
     data.data.push(track);
-    this.propagar.emit(data);
+    this.spread.emit(data);
   }
 }

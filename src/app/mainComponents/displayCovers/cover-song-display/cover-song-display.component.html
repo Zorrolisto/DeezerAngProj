@@ -1,0 +1,32 @@
+<!--agregando un background desde angular-->
+<div class="backgroundCover" 
+[style.background]="'linear-gradient(0deg, rgba(195, 137, 137, 0.9), rgba(195, 137, 137, 0.9)), url(' + songForDisplayCover.album.cover_xl + ')'">
+    <div class="row">
+        <div class="itemsContainer">
+            <div> 
+                <a (click)="reproduceAlbum()">  
+                    <img [src]="songForDisplayCover.album.cover_medium"/>
+                </a>
+            </div>
+            <div class="play" (click)="reproduceAlbum()">
+                <i class="fas fa-play fa-3x"></i>
+            </div>
+        </div>
+        <div class="col">
+            <div class="ArtistAndAlbum">
+                {{songForDisplayCover.artist.name}} {{songForDisplayCover.album.title}}
+            </div>
+            <div class="subtitleArtistAndAlbum">
+                Lo mejor de  {{songForDisplayCover.artist.name}} <label class="numberOfFollowers">{{songForDisplayCover.artist.nb_fan}} seguidores</label>
+            </div>
+            <div class="littleDescription">
+                {{songForDisplayCover.artist.name}} es un gran artista el cual es reconocido mundialmente.
+            </div>
+            <div class="buttons">
+                <button class="buttonReproducir" (click)="reproduceAlbum()"> Reproducir </button>
+                <button class="buttonSeguir"> Seguir </button>
+                <i class="fas fa-ellipsis-h menu"></i>   
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,9 +8,14 @@ import { Data } from './models.entity/Data/data';
 })
 export class AppComponent {
   
-  tracksForReproduce:Data;
-
-    Play(tracksForReproduce:any){
-    this.tracksForReproduce = tracksForReproduce;
+  songsForReproduce:Data;
+  searchOption:number = 1;
+  
+  Play(songsForReproduce:Data){
+    console.log(songsForReproduce);
+    this.songsForReproduce = songsForReproduce;
+  }
+  changeSearchOption(newSearchOption:number){
+    this.searchOption = newSearchOption;
   }
 }

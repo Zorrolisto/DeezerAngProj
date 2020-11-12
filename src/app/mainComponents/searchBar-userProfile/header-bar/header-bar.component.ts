@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header-bar',
   templateUrl: './header-bar.component.html',
   styleUrls: ['./header-bar.component.css']
 })
-export class HeaderBarComponent implements OnInit {
+export class HeaderBarComponent {
 
-  constructor() { }
+  @Output()
+  spread = new EventEmitter<any>(); 
 
-  ngOnInit(): void {
+  Search(wordToSearch:String){
+    this.spread.emit(wordToSearch);
   }
-
 }

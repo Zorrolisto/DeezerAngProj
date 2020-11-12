@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
-    font-family: "Quicksand 400";
+    font-family: "Quicksand 400", sans-serif;
     src: url("assets/fonts/Quicksand-Light.ttf") format("opentype");
     font-family: "Quicksand 700";
     src: url("assets/fonts/Quicksand-Bold.ttf") format("opentype");

@@ -22,12 +22,12 @@ export class SongService {
     return this.http.get<Data>(url);
   }
 
-  getTracksByArtistAndAlbum(nameArtist:String, nameAlbum:String, totalOfSongs:number):Observable<Data>{
-    return this.http.get<Data>(`${this.url}album:"${nameAlbum}",artist:"${nameArtist}"&index=0,&limit=${totalOfSongs}`);
+  getTracksByArtistAndAlbum(nameArtist:String, titleAlbum:String):Observable<Data>{
+    return this.http.get<Data>(`${this.url}album:"${titleAlbum}",artist:"${nameArtist}"`);
   }
 
   getBySong(nameTrack:String):Observable<Data>{
-    return this.http.get<Data>(`${this.url}track:"${nameTrack}"`);
+    return this.http.get<Data>(`${this.url}track:"${nameTrack}"&index=0&limit=10`);
   }
   
   topTenChart():Observable<Tracks>{

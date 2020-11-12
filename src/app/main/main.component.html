@@ -1,20 +1,13 @@
 <div class="main">
 
-    <div class="row">
-        <!--Search bar-->
-        <div class="col">
-            <app-search-bar (propagar)="Buscar($event)"></app-search-bar>    
-        </div>
-        <!--User Detail-->
-        <div class="col">
-            <app-user-profile></app-user-profile>
-        </div>
-    </div>
+    <app-header-bar (spread)="Search($event)"></app-header-bar>
 
-    <!--Tracks display and pagination-->
-    <app-tracks-display
-    (propagarCancion)="reproducirCancion($event)"
-    (propagar)="getAnotherPageTenAlbums($event)"
-    [tracksForReproduce]="tracksForReproduce" 
-    ></app-tracks-display>
+    <!--Canciones a Reproducir, Paginacion, y portada grande-->
+    <app-songs-display
+    (spreadSongsOfAlbum)="reproduceAlbum($event)"
+    (spreadSong)="reproduceSong($event)"
+    (spread)="getAnotherPageTenAlbums($event)"
+    [songsForReproduce]="songsForReproduce" 
+    [searchOption]="searchOption"
+    ></app-songs-display>
 </div>

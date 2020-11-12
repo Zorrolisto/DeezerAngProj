@@ -8,6 +8,10 @@
     padding-top: 50px;
     z-index: 100;
 }
+
+.currentPage{
+    color: ;
+}
   
 .sidebar a {
     padding: 4px 0px 4px 0px;
@@ -19,7 +23,9 @@
 .sidebar a:hover {
     color: #EB5757;
 }
-
+.verde{
+    color: #EB5757 !important;
+}
 .sidebar .adjustToFit{
     max-width:100%;
     max-height:100%;

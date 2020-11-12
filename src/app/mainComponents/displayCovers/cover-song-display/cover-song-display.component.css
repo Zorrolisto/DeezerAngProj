@@ -1,0 +1,94 @@
+.backgroundCover{
+    height: 250px;
+    width: 890px;
+    margin-bottom: 40px;
+}
+.ArtistAndAlbum{
+    padding-top: 30px;
+    font-family: 'Quicksand 700';
+    font-size: 22px;
+    color: white;
+}
+.subtitleArtistAndAlbum{
+    font-family: 'Quicksand 400';
+    font-size: 16px;
+    color: white;
+}
+.subtitleArtistAndAlbum label{
+    padding-left: 16px;
+    font-size: 14px;
+    color: black;
+}
+.littleDescription{
+    font-family: 'Quicksand 400';
+    font-size: 16px;
+    color: white;
+}
+.buttons {
+    position:absolute;
+    display: block;
+    height: 40px;
+    line-height: 30px;
+    text-align: start;
+    bottom: 15px;
+}
+.buttons button{
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #EB5757;
+}
+.buttonReproducir{
+    font-family: 'Quicksand 400';
+    background-color: #EB5757;
+    color: white;
+    font-size: 16px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 5px;
+    border-radius:30px;
+}
+.buttonSeguir{
+    font-family: 'Quicksand 400';
+    background-color: transparent;
+    color: #EB5757;
+    font-size: 16px;
+    margin: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius:30px;
+}
+
+.buttonSeguir:hover{
+    background-color: rgb(235, 87, 87, 0.5);
+    color: white;
+    opacity: 0.8;
+}
+.buttonReproducir:hover{
+    background-color: rgb(235, 87, 87, 0.5);
+}
+.menu{
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+}
+.itemsContainer {
+    float:left;
+    position:relative
+}
+.itemsContainer:hover .play{
+    opacity: 0.6;
+}
+
+.itemsContainer:active .play{
+    opacity: 0.3;
+}
+.play{
+    color: white;
+    position : absolute;
+    display:block;
+    top:35%; 
+    width:60px;
+    margin:0 auto; left:0px;
+    right:0px;
+    z-index:1;
+} 

@@ -8,8 +8,8 @@
             </div>
             <div class="col-4">
                 <app-song-controller 
-                (propagar)="songControl($event)" 
-                [cancionIsReproduced]="cancionIsReproduced"
+                (spread)="songControl($event)" 
+                [songIsReproduced]="songIsReproduced"
                 [existSongs]="existSongs">
                 </app-song-controller>
             </div>

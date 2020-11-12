@@ -1,8 +1,12 @@
 .icon{
-    position: relative;
+    position: absolute;
+    top: 40px;
     right: 70px;
     color: gray; 
     opacity: 50%; 
+}
+.icon:hover{
+    cursor: pointer;
 }
 
 input#search-bar{

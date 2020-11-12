@@ -8,7 +8,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SearchBarComponent {
 
   @Output()
-  propagar = new EventEmitter<any>(); 
+  spread = new EventEmitter<any>(); 
 
   wordToSearch:String;
   
@@ -17,6 +17,10 @@ export class SearchBarComponent {
   }
   
   search(){
-    this.propagar.emit(this.wordToSearch);
+    if(this.wordToSearch && this.wordToSearch.length>0){
+    this.spread.emit(this.wordToSearch);
+    }else{
+      console.log("Busqueda Vacia");
+    }
   }
 }

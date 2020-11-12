@@ -10,32 +10,32 @@ export class SongControllerComponent {
   playOrPause:boolean=true;
   
   @Input() existSongs:boolean;
-  @Input() cancionIsReproduced:boolean;
+  @Input() songIsReproduced:boolean;
   @Output()
-  propagar = new EventEmitter<any>(); 
+  spread = new EventEmitter<any>(); 
   
   playPause(){
     if(this.existSongs){
       this.verifyIfSomethingIsReproduce();
-      this.playOrPause = this.cancionIsReproduced;
+      this.playOrPause = this.songIsReproduced;
       if(this.playOrPause){
         this.playOrPause = false;
       }else{
         this.playOrPause = true;
       }
-      this.propagar.emit(this.playOrPause ? 1 : 2);
+      this.spread.emit(this.playOrPause ? 1 : 2);
     }else{
       console.log("No hay canciones para reproducir.");
     }
   }
 
   verifyIfSomethingIsReproduce(){
-    this.propagar.emit(5);
+    this.spread.emit(5);
   }
 
   next(){
     if(this.existSongs){
-      this.propagar.emit(3);
+      this.spread.emit(3);
     }else{
       console.log("No hay canciones para reproducir.");
     }
@@ -43,7 +43,7 @@ export class SongControllerComponent {
 
   previous(){
     if(this.existSongs){
-      this.propagar.emit(4);
+      this.spread.emit(4);
     }else{
       console.log("No hay canciones para reproducir.");
     }

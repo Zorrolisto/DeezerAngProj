@@ -1,1 +1,10 @@
-<p>header-bar works!</p>
+<div class="row">
+    <!--Search bar-->
+    <div class="col">
+        <app-search-bar (spread)="Search($event)"></app-search-bar>    
+    </div>
+    <!--User Detail-->
+    <div class="col">
+        <app-user-profile></app-user-profile>
+    </div>
+</div>

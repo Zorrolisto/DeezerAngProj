@@ -1,3 +1,6 @@
-<app-sidebar></app-sidebar>
-<app-main (propagar)="Play($event)"></app-main>
-<app-footer [tracksForReproduce]="tracksForReproduce"></app-footer>
+<app-sidebar (spread)="changeSearchOption($event)"></app-sidebar>
+<app-main 
+(spread)="Play($event)"
+[searchOption]="searchOption"
+></app-main>
+<app-footer [songsForReproduce]="songsForReproduce"></app-footer>

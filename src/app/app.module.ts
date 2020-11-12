@@ -20,7 +20,8 @@ import { MainComponent } from './main/main.component';
 import { HeaderBarComponent } from './mainComponents/searchBar-userProfile/header-bar/header-bar.component';
 import { SearchBarComponent } from './mainComponents/searchBar-userProfile/search-bar/search-bar.component';
 import { UserProfileComponent } from './mainComponents/searchBar-userProfile/user-profile/user-profile.component';
-import { TracksDisplayComponent } from './mainComponents/searchBar-userProfile/tracks-display/tracks-display.component';
+import { SongsDisplayComponent } from './mainComponents/displayCovers/songs-display/songs-display.component';
+import { CoverSongDisplayComponent } from './mainComponents/displayCovers/cover-song-display/cover-song-display.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TracksDisplayComponent } from './mainComponents/searchBar-userProfile/t
     HeaderBarComponent,
     SearchBarComponent,
     UserProfileComponent,
-    TracksDisplayComponent,
+    SongsDisplayComponent,
+    CoverSongDisplayComponent,
   ],
   imports: [
     HttpClientModule,

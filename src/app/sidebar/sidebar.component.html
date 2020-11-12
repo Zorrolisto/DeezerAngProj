@@ -3,10 +3,12 @@
     <img class="adjustToFit" src="assets/img/foxbel-music.png" alt="">
     <!--Tittles-->
     <a class="title">Libreria</a>
-    <a class="subtitle">Recientes</a>
-    <a class="subtitle">Artistas</a>
-    <a class="subtitle">· Albums</a>
-    <a class="subtitle">· Canciones</a>
+    <div class="subtitle">
+        <a [class.verde]="searchOption==1" (click)="changeOption(1)">· Top 10</a>
+        <a class="">Artistas</a>
+        <a [class.verde]="searchOption==2" class="" (click)="changeOption(2)">· Albums</a>
+        <a [class.verde]="searchOption==3" class="" (click)="changeOption(3)">· Canciones</a>
+    </div>
     <a class="subtitle">Estaciones</a> 
     <a class="title">Playlist</a>
     <a class="subtitle">Metal</a>
